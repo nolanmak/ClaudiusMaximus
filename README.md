@@ -1,32 +1,30 @@
 # ClaudiusMaximus
 
-A reference catalog of all Claude Code slash commands (skills) available in this
-environment, documented automatically.
+A reference catalog of the **general** Claude Code slash commands (skills)
+available in this environment, documented automatically.
 
 > Slash commands are invoked by typing `/<name>` in the Claude Code prompt.
 > Each one maps to a "skill" — a packaged capability or workflow.
+>
+> Project/Orchid-specific commands are intentionally excluded — this lists
+> general-purpose commands only.
 
 ## Command Catalog
 
 | Command | Purpose |
 |---|---|
-| `/grabnotion` | Grab / pull content from Notion. |
 | `/intercept` | Claude Intercept — intercept and inspect requests/responses. |
 | `/regression-test-plan` | Analyze all changes on the current branch, find regression test gaps, and plan fixes. |
 | `/consensus` | Gather consensus from multiple AI models on a topic, decision, or code review. |
 | `/coderabbit` | Run a CodeRabbit-style automated code review. |
-| `/dreamserver` | Dream Server workflow. |
 | `/PRReview` | PR Remediation Swarm V1 — multi-agent PR review and remediation. |
-| `/invoice` | Generate an invoice summary of work done by `nolanmak` for a specified time period. |
+| `/invoice` | Generate an invoice summary of work done for a specified time period. |
 | `/ghissue` | Create a GitHub issue using `gh issue create` (plus follow-up `gh` commands for fields). |
 | `/GenPRText` | Generate a PR title and description based on all changes on the current branch. |
 | `/swarm` | Raise an agent team of ten or more to tackle a large task in parallel. |
 | `/runtest` | Run the complete test and lint suite, fixing ALL failures regardless of relevance. |
-| `/gloss` | Gloss (`DSado88/gloss`) workflow. |
-| `/orchidgloss` | Orchid-Gloss workflow. |
 | `/caveman` | Caveman Mode. |
 | `/checkresources` | Check resources. |
-| `/cpdqaelder` | QA loop: `/loop 3m` running split-mode QA via `/cdp-qa-workflow`. |
 | `/update-config` | Configure the Claude Code harness via `settings.json` (permissions, env vars, hooks). |
 | `/keybindings-help` | Customize keyboard shortcuts / rebind keys in `~/.claude/keybindings.json`. |
 | `/simplify` | Review changed code for reuse, quality, and efficiency, then fix issues found. |
@@ -51,7 +49,6 @@ environment, documented automatically.
 ### Testing
 - `/runtest` — Full test + lint suite, fix all failures
 - `/regression-test-plan` — Find regression gaps and plan fixes
-- `/cpdqaelder` — Split-mode QA loop
 
 ### Git / GitHub
 - `/ghissue` — Create a GitHub issue
@@ -72,9 +69,9 @@ environment, documented automatically.
 - `/claude-api` — Claude API / Anthropic SDK app development
 - `/intercept` — Request/response interception
 
-### Workflows & Misc
-- `/grabnotion` · `/dreamserver` · `/gloss` · `/orchidgloss` · `/caveman` · `/checkresources` · `/invoice`
+### Misc
+- `/caveman` · `/checkresources` · `/invoice`
 
 ---
 
-_Generated on 2026-05-15. Catalog reflects the skills registered in this Claude Code environment._
+_Generated on 2026-05-15. General-purpose commands only; project/Orchid-specific skills excluded._
