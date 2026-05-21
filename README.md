@@ -53,6 +53,23 @@ exact text Claude runs when you type `/<name>`.
 |---|---|---|
 | `/intercept` | [skills/intercept/SKILL.md](skills/intercept/SKILL.md) | MITM proxy assistant for capturing/analyzing HTTP(S) traffic. ⚙️ |
 
+### Shell aliases
+
+| Alias | File | What it does |
+|---|---|---|
+| `claudelol` | [aliases/claude.sh](aliases/claude.sh) | Launch `claude` with `--dangerously-skip-permissions --remote-control`. |
+
+Source it once from your shell rc:
+```bash
+echo "source $(pwd)/aliases/claude.sh" >> ~/.zshrc && source ~/.zshrc
+```
+
+### Prompts
+
+[`prompts/`](prompts/) holds the verbatim user prompts that produced the
+non-slash artifacts in this repo (e.g. the aliases). The slash-command prompts
+themselves already live in [`commands/`](commands/).
+
 ⚙️ = contains user/machine-specific values you should tweak (see below).
 
 ---
