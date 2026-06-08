@@ -21,9 +21,16 @@ Install the ClaudiusMaximus slash-command pack into my Claude Code setup.
    mkdir -p ~/.claude/skills/intercept
    cp ClaudiusMaximus/skills/intercept/SKILL.md ~/.claude/skills/intercept/SKILL.md
 
-4. List what got installed: ls ~/.claude/commands
+4. Install the shell aliases (claudelol / f -> launch straight into ultracode):
+   cp ClaudiusMaximus/shell/aliases.zsh ~/.claude/claudiusmaximus-aliases.zsh
+   Then, only if it isn't already there, add a source line to my ~/.zshrc:
+   grep -qF 'claudiusmaximus-aliases.zsh' ~/.zshrc || \
+     printf '\n# ClaudiusMaximus aliases\nsource "%s"\n' "$HOME/.claude/claudiusmaximus-aliases.zsh" >> ~/.zshrc
+   (ultracode is incompatible with --remote-control, so these aliases omit it.)
 
-5. Then open these files and adapt the machine/user-specific values to MY
+5. List what got installed: ls ~/.claude/commands
+
+6. Then open these files and adapt the machine/user-specific values to MY
    environment, asking me for anything you can't infer:
    - ~/.claude/commands/ghissue.md  -> my GitHub project's cycle name, milestone
      names, and assignee (currently hardcoded to "nolanmak" / "Cycle 24")
@@ -33,7 +40,7 @@ Install the ClaudiusMaximus slash-command pack into my Claude Code setup.
    - ~/.claude/skills/intercept/SKILL.md -> the absolute path where I install
      claude_intercept (currently /Users/nolanmakatche/claude_intercept)
 
-6. Confirm by telling me which slash commands are now available and which ones
+7. Confirm by telling me which slash commands are now available and which ones
    you edited for me.
 
 Do not modify these (they are portable as-is): caveman, checkresources,

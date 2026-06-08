@@ -6,8 +6,10 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CMD_SRC="$SCRIPT_DIR/commands"
 SKILL_SRC="$SCRIPT_DIR/skills"
+ALIAS_SRC="$SCRIPT_DIR/shell/aliases.zsh"
 CMD_DST="$HOME/.claude/commands"
 SKILL_DST="$HOME/.claude/skills"
+ALIAS_DST="$HOME/.claude/claudiusmaximus-aliases.zsh"
 STAMP="$(date +%Y%m%d-%H%M%S)"
 
 echo "ClaudiusMaximus → installing to ~/.claude"
@@ -36,6 +38,34 @@ for d in "$SKILL_SRC"/*/; do
   cp "$d/SKILL.md" "$SKILL_DST/$name/SKILL.md"
   echo "  installed skill /$name"
 done
+
+# Shell aliases (claudelol / f -> launch straight into ultracode mode).
+# Copy the aliases file into ~/.claude and source it from the user's shell rc.
+# Idempotent: a marker guards against duplicate source lines on re-runs.
+if [ -f "$ALIAS_SRC" ]; then
+  backup_if_exists "$ALIAS_DST"
+  cp "$ALIAS_SRC" "$ALIAS_DST"
+  echo "  installed aliases (claudelol, f) -> $ALIAS_DST"
+
+  # Prefer ~/.zshrc, fall back to ~/.bashrc.
+  RC=""
+  if [ -f "$HOME/.zshrc" ]; then RC="$HOME/.zshrc"
+  elif [ -f "$HOME/.bashrc" ]; then RC="$HOME/.bashrc"
+  fi
+  MARKER="# ClaudiusMaximus aliases"
+  if [ -n "$RC" ]; then
+    if grep -qF "$MARKER" "$RC"; then
+      echo "  shell rc already sources the aliases ($RC) — left untouched"
+    else
+      backup_if_exists "$RC"
+      printf '\n%s\nsource "%s"\n' "$MARKER" "$ALIAS_DST" >> "$RC"
+      echo "  wired aliases into $RC (run: source $RC)"
+    fi
+  else
+    echo "  no ~/.zshrc or ~/.bashrc found — add this line to your shell rc:"
+    echo "      source \"$ALIAS_DST\""
+  fi
+fi
 
 echo
 echo "Done. Restart Claude Code or start a new session, then type / to see them."

@@ -57,6 +57,29 @@ exact text Claude runs when you type `/<name>`.
 
 ---
 
+## 🐚 Shell aliases
+
+[`shell/aliases.zsh`](shell/aliases.zsh) adds two launchers that drop you
+straight into **ultracode** mode (xhigh effort + standing dynamic-workflow
+orchestration) by auto-submitting `/effort ultracode` as the first turn:
+
+| Alias | Command |
+|---|---|
+| `claudelol` | `claude --dangerously-skip-permissions "/effort ultracode"` |
+| `f` | same as `claudelol`, one keystroke |
+
+`install.sh` copies the file to `~/.claude/claudiusmaximus-aliases.zsh` and adds a
+`source` line to your `~/.zshrc` (idempotent, backs up first). To wire it up by
+hand: `echo 'source ~/.claude/claudiusmaximus-aliases.zsh' >> ~/.zshrc`.
+
+> **Heads up:** ultracode and `--remote-control` are mutually exclusive — a Remote
+> Control session caps effort at xhigh and rejects ultracode, and its boot prompt
+> isn't auto-submitted. These aliases omit `--remote-control` on purpose. For
+> drive-from-phone sessions, launch `claude --remote-control` separately (xhigh,
+> not ultracode).
+
+---
+
 ## ⚙️ Customize before relying on these
 
 These files work as-is but reference personal/machine config:
