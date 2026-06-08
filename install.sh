@@ -6,7 +6,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CMD_SRC="$SCRIPT_DIR/commands"
 SKILL_SRC="$SCRIPT_DIR/skills"
-ALIAS_SRC="$SCRIPT_DIR/shell/aliases.zsh"
+ALIAS_SRC="$SCRIPT_DIR/aliases/claude.sh"
 CMD_DST="$HOME/.claude/commands"
 SKILL_DST="$HOME/.claude/skills"
 ALIAS_DST="$HOME/.claude/claudiusmaximus-aliases.zsh"

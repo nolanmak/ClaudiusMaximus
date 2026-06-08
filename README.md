@@ -55,28 +55,7 @@ exact text Claude runs when you type `/<name>`.
 
 ### Shell aliases
 
-| Alias | File | What it does |
-|---|---|---|
-| `claudelol` | [aliases/claude.sh](aliases/claude.sh) | Launch `claude` with `--dangerously-skip-permissions --remote-control`. |
-
-Source it once from your shell rc:
-```bash
-echo "source $(pwd)/aliases/claude.sh" >> ~/.zshrc && source ~/.zshrc
-```
-
-### Prompts
-
-[`prompts/`](prompts/) holds the verbatim user prompts that produced the
-non-slash artifacts in this repo (e.g. the aliases). The slash-command prompts
-themselves already live in [`commands/`](commands/).
-
-⚙️ = contains user/machine-specific values you should tweak (see below).
-
----
-
-## 🐚 Shell aliases
-
-[`shell/aliases.zsh`](shell/aliases.zsh) adds two launchers that drop you
+[`aliases/claude.sh`](aliases/claude.sh) adds two launchers that drop you
 straight into **ultracode** mode (xhigh effort + standing dynamic-workflow
 orchestration) by auto-submitting `/effort ultracode` as the first turn:
 
@@ -86,14 +65,22 @@ orchestration) by auto-submitting `/effort ultracode` as the first turn:
 | `f` | same as `claudelol`, one keystroke |
 
 `install.sh` copies the file to `~/.claude/claudiusmaximus-aliases.zsh` and adds a
-`source` line to your `~/.zshrc` (idempotent, backs up first). To wire it up by
-hand: `echo 'source ~/.claude/claudiusmaximus-aliases.zsh' >> ~/.zshrc`.
+`source` line to your `~/.zshrc` (idempotent, backs up first). By hand:
+`echo 'source ~/.claude/claudiusmaximus-aliases.zsh' >> ~/.zshrc`.
 
 > **Heads up:** ultracode and `--remote-control` are mutually exclusive — a Remote
 > Control session caps effort at xhigh and rejects ultracode, and its boot prompt
-> isn't auto-submitted. These aliases omit `--remote-control` on purpose. For
-> drive-from-phone sessions, launch `claude --remote-control` separately (xhigh,
+> isn't auto-submitted. These aliases omit `--remote-control` on purpose. For a
+> drive-from-phone session, launch `claude --remote-control` separately (xhigh,
 > not ultracode).
+
+### Prompts
+
+[`prompts/`](prompts/) holds the verbatim user prompts that produced the
+non-slash artifacts in this repo (e.g. the aliases). The slash-command prompts
+themselves already live in [`commands/`](commands/).
+
+⚙️ = contains user/machine-specific values you should tweak (see below).
 
 ---
 

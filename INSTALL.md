@@ -22,7 +22,7 @@ Install the ClaudiusMaximus slash-command pack into my Claude Code setup.
    cp ClaudiusMaximus/skills/intercept/SKILL.md ~/.claude/skills/intercept/SKILL.md
 
 4. Install the shell aliases (claudelol / f -> launch straight into ultracode):
-   cp ClaudiusMaximus/shell/aliases.zsh ~/.claude/claudiusmaximus-aliases.zsh
+   cp ClaudiusMaximus/aliases/claude.sh ~/.claude/claudiusmaximus-aliases.zsh
    Then, only if it isn't already there, add a source line to my ~/.zshrc:
    grep -qF 'claudiusmaximus-aliases.zsh' ~/.zshrc || \
      printf '\n# ClaudiusMaximus aliases\nsource "%s"\n' "$HOME/.claude/claudiusmaximus-aliases.zsh" >> ~/.zshrc
