@@ -30,6 +30,13 @@ for f in "$CMD_SRC"/*.md; do
   echo "  installed /$(basename "$name" .md)"
 done
 
+# Global CLAUDE.md (user-wide rules)
+if [ -f "$SCRIPT_DIR/CLAUDE.md" ]; then
+  backup_if_exists "$HOME/.claude/CLAUDE.md"
+  cp "$SCRIPT_DIR/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  echo "  installed CLAUDE.md (global rules)"
+fi
+
 # Skills (one dir per skill)
 for d in "$SKILL_SRC"/*/; do
   name="$(basename "$d")"
