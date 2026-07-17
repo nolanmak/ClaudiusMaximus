@@ -7,9 +7,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CMD_SRC="$SCRIPT_DIR/commands"
 SKILL_SRC="$SCRIPT_DIR/skills"
 ALIAS_SRC="$SCRIPT_DIR/aliases/claude.sh"
+MD_SRC="$SCRIPT_DIR/CLAUDE.md"
 CMD_DST="$HOME/.claude/commands"
 SKILL_DST="$HOME/.claude/skills"
 ALIAS_DST="$HOME/.claude/claudiusmaximus-aliases.zsh"
+MD_DST="$HOME/.claude/CLAUDE.md"
 STAMP="$(date +%Y%m%d-%H%M%S)"
 
 echo "ClaudiusMaximus → installing to ~/.claude"
@@ -30,13 +32,6 @@ for f in "$CMD_SRC"/*.md; do
   echo "  installed /$(basename "$name" .md)"
 done
 
-# Global CLAUDE.md (user-wide rules)
-if [ -f "$SCRIPT_DIR/CLAUDE.md" ]; then
-  backup_if_exists "$HOME/.claude/CLAUDE.md"
-  cp "$SCRIPT_DIR/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
-  echo "  installed CLAUDE.md (global rules)"
-fi
-
 # Skills (one dir per skill)
 for d in "$SKILL_SRC"/*/; do
   name="$(basename "$d")"
@@ -45,6 +40,13 @@ for d in "$SKILL_SRC"/*/; do
   cp "$d/SKILL.md" "$SKILL_DST/$name/SKILL.md"
   echo "  installed skill /$name"
 done
+
+# Global CLAUDE.md (user-level conventions applied to every project)
+if [ -f "$MD_SRC" ]; then
+  backup_if_exists "$MD_DST"
+  cp "$MD_SRC" "$MD_DST"
+  echo "  installed CLAUDE.md (global conventions)"
+fi
 
 # Shell aliases (claudelol / f -> launch straight into ultracode mode).
 # Copy the aliases file into ~/.claude and source it from the user's shell rc.
