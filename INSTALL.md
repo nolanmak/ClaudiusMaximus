@@ -32,10 +32,7 @@ Install the ClaudiusMaximus slash-command pack into my Claude Code setup.
 
 6. Then open these files and adapt the machine/user-specific values to MY
    environment, asking me for anything you can't infer:
-   - ~/.claude/commands/ghissue.md  -> my GitHub project's cycle name, milestone
-     names, and assignee (currently hardcoded to "nolanmak" / "Cycle 24")
    - ~/.claude/commands/invoice.md  -> my git author name (currently "nolanmak")
-   - ~/.claude/commands/runtest.md  -> my project's actual test/lint scripts
    - ~/.claude/commands/coderabbit.md -> path to my coderabbit CLI binary
    - ~/.claude/skills/intercept/SKILL.md -> the absolute path where I install
      claude_intercept (currently /Users/nolanmakatche/claude_intercept)

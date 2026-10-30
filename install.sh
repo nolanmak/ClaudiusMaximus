@@ -78,5 +78,5 @@ fi
 
 echo
 echo "Done. Restart Claude Code or start a new session, then type / to see them."
-echo "NOTE: ghissue, invoice, runtest, coderabbit, and the intercept skill"
+echo "NOTE: invoice, coderabbit, and the intercept skill"
 echo "contain machine/user-specific values — see README.md → Customize."

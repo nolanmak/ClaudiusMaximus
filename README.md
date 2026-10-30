@@ -40,11 +40,9 @@ exact text Claude runs when you type `/<name>`.
 | `/coderabbit` | [coderabbit.md](commands/coderabbit.md) | Run CodeRabbit CLI review on uncommitted changes. |
 | `/consensus` | [consensus.md](commands/consensus.md) | Multi-model consensus (Gemini 3 Pro, Grok 4, Opus 4.5, Codex GPT5.2). |
 | `/GenPRText` | [GenPRText.md](commands/GenPRText.md) | Generate PR title + description from the branch diff. |
-| `/ghissue` | [ghissue.md](commands/ghissue.md) | Create a GitHub issue with structured milestone/estimate/label workflow. ⚙️ |
 | `/invoice` | [invoice.md](commands/invoice.md) | Build an invoice summary of merged PRs for a date range. ⚙️ |
 | `/PRReview` | [PRReview.md](commands/PRReview.md) | PR Remediation Swarm — 7-role multi-agent review→fix→ship pipeline. |
 | `/regression-test-plan` | [regression-test-plan.md](commands/regression-test-plan.md) | Find regression-test gaps in branch changes and plan fixes. |
-| `/runtest` | [runtest.md](commands/runtest.md) | Run full format/lint/test/rust suite, fix every failure. |
 | `/swarm` | [swarm.md](commands/swarm.md) | Raise a persistent 10+ agent team in delegate mode. |
 
 ### Skills
@@ -88,12 +86,8 @@ themselves already live in [`commands/`](commands/).
 
 These files work as-is but reference personal/machine config:
 
-- **`commands/ghissue.md`** — hardcodes a cycle (`Cycle 24`), milestone names, and
-  assignee `nolanmak`. Update to match your repo's project board.
 - **`commands/invoice.md`** — filters git log by author `nolanmak`. Change to your
   git author name.
-- **`commands/runtest.md`** — assumes `npm run format/check/test` + `npm run test:rust`.
-  Adjust to your project's scripts.
 - **`commands/coderabbit.md`** — expects the CodeRabbit CLI at `$HOME/.local/bin/coderabbit`.
 - **`skills/intercept/SKILL.md`** — hardcodes the absolute path
   `/Users/nolanmakatche/claude_intercept`. Repoint to wherever you install the tool.
