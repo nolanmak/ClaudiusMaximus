@@ -16,6 +16,8 @@ git clone https://github.com/nolanmak/ClaudiusMaximus.git
 cd ClaudiusMaximus && ./install.sh
 ```
 
+Safe to re-run. It checks what's already installed and skips anything that's up to date, already comes from a plugin, or that you manage yourself (a symlink or its own git checkout). Anything it replaces is backed up to `~/.claude/backups/claudiusmaximus/`. Run `./install.sh --dry-run` to see what it would do first.
+
 ### Option B — Manual
 ```bash
 cp commands/*.md ~/.claude/commands/
